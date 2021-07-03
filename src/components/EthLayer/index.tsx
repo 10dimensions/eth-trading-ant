@@ -1,12 +1,15 @@
-import Web3 from "web3";
-import Web3Modal from "web3modal";
+import React from 'react';
+
+import Web3 from 'web3';
+import Web3Modal from 'web3modal';
+import { Button } from 'antd';
 
 const providerOptions = {
   /* See Provider Options Section */
 };
 
 const web3Modal = new Web3Modal({
-  network: "mainnet", // optional
+  network: 'kovan', // optional
   cacheProvider: true, // optional
   providerOptions // required
 });
@@ -14,15 +17,17 @@ const web3Modal = new Web3Modal({
 let provider;
 let web3;
 
-const connectWallet = () => {
+const connectWallet = async () => {
   provider = await web3Modal.connect();
-  web3 = new Web3(provider);
-}
+  //web3 = new Web3(provider);
+};
 
 const EthLayer = () => {
-  return(
-    
-  )
-}
+  return (
+    <Button type="primary" onClick={connectWallet}>
+      Connect to Wallet
+    </Button>
+  );
+};
 
 export default EthLayer;
