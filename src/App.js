@@ -1,8 +1,8 @@
-import React from 'react';
-import './style.css';
-import 'antd/dist/antd.css';
+import React from "react";
+import "./style.css";
+import "antd/dist/antd.css";
 
-import EthLayer from './components/EthLayer';
+import EthLayer from "./components/EthLayer";
 
 export default function App() {
   return (
