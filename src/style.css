@@ -1,9 +1,11 @@
-body {
+.app-div {
   background-color: black;
   color: white;
+  height: 100%;
 }
 
-h2 {
+.app-div h2 {
+  margin-left: 40%;
   color: pink;
 }
 

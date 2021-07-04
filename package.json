@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@ant-design/charts": "1.1.20",
+    "@uniswap/sdk": "3.0.3",
     "antd": "4.16.6",
     "evm-chains": "0.2.0",
     "http": "^0.0.0",
