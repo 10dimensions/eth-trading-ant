@@ -6,7 +6,7 @@ import EthLayer from "./components/EthLayer";
 
 export default function App() {
   return (
-    <div>
+    <div className="app-div">
       <h2>Ethereum Trading - Ant Design Widgets</h2>
       <EthLayer />
       {/* <p>Start editing to see some magic happen :)</p> */}

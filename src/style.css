@@ -1,3 +1,12 @@
-h1, p {
-  font-family: Lato;
+body {
+  background-color: black;
+  color: white;
+}
+
+h2 {
+  color: pink;
+}
+
+h1,
+p {
 }
