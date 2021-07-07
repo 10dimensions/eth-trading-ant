@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "@ant-design/charts": "1.1.20",
+    "@apollo/client": "3.3.20",
     "@uniswap/sdk": "3.0.3",
     "antd": "4.16.6",
     "evm-chains": "0.2.0",
+    "graphql": "15.5.1",
     "http": "^0.0.0",
     "https": "^1.0.0",
     "react": "17.0.2",
