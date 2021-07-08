@@ -2,7 +2,7 @@
 
 ### Using Ant Design Widgets
 
-- Implements Metamask wallet signin
+- Implements Metamask wallet signin (Only against Ethereum-Rinkeby Testnet)
 - Displays ETH and DAI balance. (additional currencies n/a)
 - Querying and Visual Widgets related to ETH<>DAI pair using UniswapV2's TheGraph
 - Simple Interactive Form to Gauge & Swap tokens (ETH->WETH->DAI)
