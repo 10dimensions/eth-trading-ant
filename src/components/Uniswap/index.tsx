@@ -44,19 +44,19 @@ const Uniswap = (props) => {
 
   const [tradeAmount, setTradeAmout] = useState("0.0001");
 
-  const [midPrice, setMidPrice] = useState(0);
-  const [midPriceInv, setMidPriceInv] = useState(0);
+  const [midPrice, setMidPrice] = useState("");
+  const [midPriceInv, setMidPriceInv] = useState("");
 
   const [executionPrice, setExecutionPrice] = useState(0);
   const [nextMidPrice, setNextMidPrice] = useState(0);
   const [amountIn, setAmountIn] = useState(0);
 
-  const initTrade = () => {
+  const initTrade = (_weth) => {
     debugger;
-
+    var _amt = web3.utils.toWei(tradeAmount, "ether");
     trade = new Trade(
       route,
-      new TokenAmount(weth, web3.utils.toWei(tradeAmount, "ether")), //"1000000000000000000"),
+      new TokenAmount(_weth, _amt), //"1000000000000000000"),
       TradeType.EXACT_INPUT
     );
 
@@ -75,28 +75,34 @@ const Uniswap = (props) => {
 
   useEffect(() => {
     (async () => {
-      debugger;
       var _dai = await Fetcher.fetchTokenData(
         net,
         tokenAddresses[0]["address"]
       );
       setDai(_dai);
-      setWeth(WETH[net]);
+      var _weth = WETH[net];
+      setWeth(_weth);
 
-      var _pair = await Fetcher.fetchPairData(dai, weth);
+      var _pair = await Fetcher.fetchPairData(_dai, _weth);
       setPair(_pair);
-      setRoute(new Route([pair], weth));
 
-      setPath([weth.address, dai.address]);
+      var _route = new Route([_pair], _weth);
+      setRoute(_route);
 
-      setMidPrice(route.midPrice.toSignificant(6));
-      setMidPriceInv(route.midPrice.invert().toSignificant(6));
+      setPath([_weth.address, _dai.address]);
 
-      initTrade();
+      var _midPrice = _route.midPrice.toSignificant(6);
+      var _midPriceInv = _route.midPrice.invert().toSignificant(6);
+
+      setMidPrice(_midPrice);
+      setMidPriceInv(_midPriceInv);
+
+      initTrade(_weth);
     })();
   }, []);
 
   const makeTransaction = async () => {
+    debugger;
     tx = await uniSwapRouter.current.methods
       .swapExactETHForTokens(
         amountIn,

@@ -1,5 +1,3 @@
-import Account from "../Account";
-//import Layout from './Layout'
 import Web3 from "web3";
 import tokenABI from "../../lib/tokenABI";
 import { useState } from "react";
@@ -7,7 +5,11 @@ import { Button } from "antd";
 import { AccountType } from "../../interfaces";
 import tokenAddresses from "../../assets/tokenAddresses";
 
+import Account from "../Account";
+//import Layout from './Layout'
 import TradingData from "../Trading";
+import Uniswap from "../Uniswap";
+
 import "./style.less";
 
 const EthLayer = () => {
@@ -95,6 +97,9 @@ const EthLayer = () => {
           </div>
           <>
             <TradingData />
+          </>
+          <>
+            <Uniswap web3={web3} accounts={accounts} />
           </>
         </>
       )}
