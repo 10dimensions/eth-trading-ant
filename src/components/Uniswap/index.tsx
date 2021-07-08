@@ -51,11 +51,11 @@ const Uniswap = (props) => {
   const [nextMidPrice, setNextMidPrice] = useState(0);
   const [amountIn, setAmountIn] = useState(0);
 
-  const initTrade = (_weth) => {
-    debugger;
+  const initTrade = (_route, _weth) => {
+    
     var _amt = web3.utils.toWei(tradeAmount, "ether");
     trade = new Trade(
-      route,
+      _route,
       new TokenAmount(_weth, _amt), //"1000000000000000000"),
       TradeType.EXACT_INPUT
     );
@@ -97,12 +97,13 @@ const Uniswap = (props) => {
       setMidPrice(_midPrice);
       setMidPriceInv(_midPriceInv);
 
-      initTrade(_weth);
+      initTrade(_route, _weth);
     })();
   }, []);
 
   const makeTransaction = async () => {
-    debugger;
+    //debugger;
+    return;
     tx = await uniSwapRouter.current.methods
       .swapExactETHForTokens(
         amountIn,
@@ -128,7 +129,7 @@ const Uniswap = (props) => {
         onChange={(e) => setTradeAmout(e.target.value)}
       />
       <br />
-      <Button className="swap-btn" onClick={() => makeTransaction}>
+      <Button className="swap-btn" onClick={() => {makeTransaction()}}>
         Swap to DAI
       </Button>
       <br />
