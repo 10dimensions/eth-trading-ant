@@ -5,6 +5,10 @@
   "dependencies": {
     "@ant-design/charts": "1.1.20",
     "@apollo/client": "3.3.20",
+    "@ethersproject/address": "5.4.0",
+    "@ethersproject/contracts": "5.4.0",
+    "@ethersproject/providers": "5.4.1",
+    "@ethersproject/solidity": "5.4.0",
     "@uniswap/sdk": "3.0.3",
     "antd": "4.16.6",
     "evm-chains": "0.2.0",

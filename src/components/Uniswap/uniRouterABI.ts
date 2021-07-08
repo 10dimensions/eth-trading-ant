@@ -1,4 +1,4 @@
-const uniRouterAbi = {
+const uniRouterAbi = [{
   "abi": [
     {
       "inputs": [],
@@ -1921,6 +1921,6 @@ const uniRouterAbi = {
     }
   ],
   "bytecode": ""
-}
+}];
 
 export default uniRouterAbi;
